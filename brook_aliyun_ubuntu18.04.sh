@@ -2,8 +2,10 @@
 
 set -e
 
+SSHD_PORT=2000
+
 # change sshd port first
-sed -i 's/#Port 22/Port 2000/g' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port '"$SSHD_PORT"'/g' /etc/ssh/sshd_config
 systemctl reload sshd
 
 # update

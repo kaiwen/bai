@@ -33,6 +33,8 @@ wget -O /usr/local/bin/brook https://github.com/txthinking/brook/releases/downlo
 chmod +x /usr/local/bin/brook
 nohup brook server -l 0.0.0.0:3000 -p superk >brook.log &
 
+sleep 1
+
 echo
 echo
 echo

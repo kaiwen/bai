@@ -1,4 +1,9 @@
-# 阿里云Brook自动安装脚本
+# 阿里云Brook自动改端口/安装脚本
+如果你的梯子经常被封，可以看下这个
+
+## Feature
++ 端口被封: `curl -k -d 'port=1234' https://x.x.x.x/port` 设置brook监听端口为1234
++ IP被封: `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
 
 ## 安装
 

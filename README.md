@@ -1,8 +1,12 @@
-# 阿里云Brook自动改端口/安装脚本
+# 阿里云Brook自动安装改端口脚本
 如果你的梯子经常被封，可以看下这个
 
 ## Feature
-+ 端口被封: `curl -k -d 'port=1234' https://x.x.x.x/port` 设置brook监听端口为1234
++ http接口查询/更改端口
++ 自动安装部署brook脚本
+
+## TL;DR
++ 端口被封: `curl -k -d 'port=1234' https://x.x.x.x/port` 设置brook监听端口为1234(更改'port=xxxx'可随意更改监听端口)
 + IP被封: `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
 
 ## 安装
@@ -15,7 +19,7 @@
 ## 查看状态
 
 + `curl -k https://x.x.x.x/port` 获取当前brook监听端口
-+ `curl -k -d 'port=1234' https://x.x.x.x/port` 设置brook监听端口为1234
++ `curl -k -d 'port=1234' https://x.x.x.x/port` 设置brook监听端口为1234(更改'port=xxxx'可随意更改监听端口)
 
 ## TODO
 

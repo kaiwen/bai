@@ -12,9 +12,8 @@
 ## 安装
 
 1. 配置一个阿里云ECS
-2. 网页VNC登陆，防止被防火墙发现(部分网络运营商会阻止22端口)
-3. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
-4. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && ./brook_aliyun_ubuntu18.04.sh`
+2. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
+3. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && ./brook_aliyun_ubuntu18.04.sh`
 
 注意： 安装后sshd端口已改为**2000**，可自行修改
 

@@ -15,7 +15,9 @@
 2. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
 3. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && ./brook_aliyun_ubuntu18.04.sh`
 
-注意： 安装后sshd端口已改为**2000**，可自行修改
+安装后
++ sshd端口已改为**2000**，可自行修改
++ brook默认监听端口**3000**
 
 ## 查看状态
 

@@ -1,4 +1,4 @@
-# 阿里云Brook自动安装改端口脚本
+# AWS/阿里云 Brook自动安装改端口脚本
 如果你的梯子经常被封，可以看下这个
 
 ## Feature
@@ -11,12 +11,11 @@
 
 ## 安装
 
-1. 配置一个阿里云ECS
-2. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
-3. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && ./brook_aliyun_ubuntu18.04.sh`
+1. 配置一个AWS或者阿里云ECS, 系统选择ubuntu 20.04或者18.04
+2. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sudo sh`
+3. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && sudo ./brook_aliyun_ubuntu18.04.sh`
 
 安装后
-+ sshd端口已改为**2000**，可自行修改
 + brook默认监听端口**3000**
 
 ## 查看状态
@@ -26,4 +25,5 @@
 
 ## TODO
 
-后续各个系统脚本增加中，目前主要根据我经常用来翻墙购买的ECS配置 ;-)
+1. 动态获得brook最新版本下载
+2. 后续其他系统脚本增加(目前主要根据自己需要)

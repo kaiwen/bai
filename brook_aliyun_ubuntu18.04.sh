@@ -2,17 +2,11 @@
 
 set -e
 
-SSHD_PORT=2000
-
-# change sshd port first
-sed -i 's/#Port 22/Port '"$SSHD_PORT"'/g' /etc/ssh/sshd_config
-systemctl reload sshd
-
 # update
 apt update
 apt upgrade -y
+apt install nginx uwsgi-plugin-python3 python3-pip -y
 apt autoremove -y
-apt install nginx uwsgi-plugin-python3 -y
 
 pip3 install flask
 

@@ -11,14 +11,17 @@ Tested **AWS** **Aliyun**
 + IP被封: `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sh`
 
 ## 安装
-
+### 自动安装 (默认密码)
 1. 配置一个AWS或者阿里云ECS, 系统选择ubuntu 20.04或者18.04
 2. `curl -L https://github.com/kaiwen/bai/releases/download/script/install.sh | sudo sh`
-3. 或者 `git clone https://github.com/kaiwen/bai.git && cd bai && sudo ./brook_aliyun_ubuntu18.04.sh`
+### 手动安装 (手动端口和密码)
+1. 配置一个AWS或者阿里云ECS, 系统选择ubuntu 20.04或者18.04
+2. `git clone https://github.com/kaiwen/bai.git`
+3. `cd bai && sudo ./brook_aliyun_ubuntu18.04.sh [port] [pass]` 设置端口和密码
 
 安装后
 + brook默认监听端口**3000**
-+ 密码**superk** (请手动改密码)
++ 默认密码**superk**
 
 ## 查看状态
 

@@ -31,7 +31,7 @@ systemctl reload nginx
 nohup uwsgi config.ini >fb.log &
 
 # download brook
-URL=$(curl -i https://github.com/txthinking/brook/releases/latest | awk '/^location/{print $2}')
+URL=$(curl -i https://github.com/txthinking/brook/releases/latest | awk '/^location/{print $2}' | tr -d '\r\n')
 echo "latest brook download page: $URL"
 
 linux_URL="${URL/tag/download}/brook_linux_amd64"

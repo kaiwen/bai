@@ -10,6 +10,8 @@ then
 	PASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
 fi
 
+sed -i "s/3000/$PORT/" fb.py
+
 # update
 apt update
 apt upgrade -y

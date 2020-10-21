@@ -44,7 +44,7 @@ wget $linux_URL
 wget $windows_URL
 cp -f brook_linux_amd64 /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
-nohup brook server -l 0.0.0.0:$PORT -p superk >brook.log &
+nohup brook server -l 0.0.0.0:$PORT -p $PASS >brook.log &
 
 sleep 1
 

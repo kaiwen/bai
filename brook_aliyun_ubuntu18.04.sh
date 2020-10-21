@@ -1,6 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
+
+PORT=${1:-3000}
+PASS=$2
+
+if [[ -z "$2" ]]
+then
+	PASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
+fi
 
 # update
 apt update
@@ -23,13 +31,25 @@ systemctl reload nginx
 nohup uwsgi config.ini >fb.log &
 
 # download brook
-wget -O /usr/local/bin/brook https://github.com/txthinking/brook/releases/download/v20200201/brook
+URL=$(curl -i https://github.com/txthinking/brook/releases/latest | awk '/^location/{print $2}')
+echo "latest brook download page: $URL"
+
+linux_URL="${URL/tag/download}/brook_linux_amd64"
+windows_URL="${URL/tag/download}/Brook.exe"
+
+echo "download brook(linux): $linux_URL"
+echo "download brook(windows): $windows_URL"
+
+wget $linux_URL
+wget $windows_URL
+cp -f brook_linux_amd64 /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
-nohup brook server -l 0.0.0.0:3000 -p superk >brook.log &
+nohup brook server -l 0.0.0.0:$PORT -p superk >brook.log &
 
 sleep 1
 
 echo
-echo
+echo "PORT=$PORT PASS=$PASS"
+echo "Client to use brook_linux_amd64 Brook.exe"
 echo
 echo "Install Successfuly!"

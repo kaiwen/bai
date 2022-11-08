@@ -24,7 +24,11 @@ wget $linux_URL
 wget $apk_URL
 cp -f brook_linux_amd64 /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
-nohup brook server -l 0.0.0.0:$PORT -p $PASS &
+
+# download agent
+wget https://github.com/kaiwen/bai/releases/download/v1.1/agent -O /usr/local/bin/agent
+chmod +x /usr/local/bin/agent
+nohup /usr/local/bin/agent $PORT $PASS &
 
 echo
 echo "PORT=$PORT PASS=$PASS"

@@ -33,6 +33,7 @@ func spawn(port uint16, pass string) {
 		log.Printf("kill process %d", pid)
 		process, _ := os.FindProcess(pid)
 		process.Signal(os.Interrupt)
+		process.Wait()
 	}
 
 	// start new process
@@ -45,7 +46,6 @@ func spawn(port uint16, pass string) {
 	file.Truncate(0)
 	file.Seek(0, 0)
 	file.WriteString(strconv.Itoa(cmd.Process.Pid))
-	cmd.Process.Release()
 
 	log.Println("detached process")
 }

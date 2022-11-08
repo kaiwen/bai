@@ -1,21 +1,23 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"strconv"
 )
 
 func spawn(port uint16, pass string) {
 	// terminate old process
-	file, err := os.OpenFile("/tmp/ab.pid", os.O_RDONLY|os.O_CREATE, 0644)
+	file, err := os.OpenFile("/tmp/ab.pid", os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		log.Println(err)
 		return
 	}
+	defer file.Close()
+
 	buf, err := io.ReadAll(file)
 	if err != nil {
 		log.Println(err)
@@ -35,12 +37,17 @@ func spawn(port uint16, pass string) {
 
 	// start new process
 	log.Printf("set port %d", port)
-	process, err := os.StartProcess("/usr/local/bin/brook", []string{"server", "-l", "0.0.0.0:" + strconv.Itoa(int(port)), "-p", pass}, &os.ProcAttr{})
-	if err != nil {
+	cmd := exec.Command("/usr/local/bin/brook", "server", "-l", ":"+strconv.Itoa(int(port)), "-p", pass)
+	if err := cmd.Start(); err != nil {
 		log.Println(err)
 		return
 	}
-	process.Release()
+	file.Truncate(0)
+	file.Seek(0, 0)
+	file.WriteString(strconv.Itoa(cmd.Process.Pid))
+	cmd.Process.Release()
+
+	log.Println("detached process")
 }
 
 func main() {
@@ -77,5 +84,5 @@ func main() {
 		}
 	})
 
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

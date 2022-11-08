@@ -35,7 +35,7 @@ func spawn(port uint16, pass string) {
 
 	// start new process
 	log.Printf("set port %d", port)
-	process, err := os.StartProcess("/usr/local/bin/brook_linux_amd64", []string{}, &os.ProcAttr{})
+	process, err := os.StartProcess("/usr/local/bin/brook", []string{"server", "-l", "0.0.0.0:" + strconv.Itoa(int(port)), "-p", pass}, &os.ProcAttr{})
 	if err != nil {
 		log.Println(err)
 		return

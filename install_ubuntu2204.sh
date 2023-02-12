@@ -26,9 +26,9 @@ cp -f brook_linux_amd64 /usr/local/bin/brook
 chmod +x /usr/local/bin/brook
 
 # download agent
-wget https://github.com/kaiwen/bai/releases/download/v2.0/agent -O /usr/local/bin/agent
-chmod +x /usr/local/bin/agent
-nohup /usr/local/bin/agent $PORT $PASS &
+wget https://github.com/kaiwen/bai/releases/download/v2.0/bagent -O /usr/local/bin/bagent
+chmod +x /usr/local/bin/bagent
+nohup /usr/local/bin/bagent $PORT $PASS &
 
 echo
 echo "PORT=$PORT PASS=$PASS"

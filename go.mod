@@ -1,3 +1,3 @@
-module example.com/agent
+module example.com/bagent
 
 go 1.19

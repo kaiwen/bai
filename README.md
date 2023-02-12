@@ -10,5 +10,5 @@
 2. `curl -L https://github.com/kaiwen/bai/releases/download/v2.0/install_ubuntu2204.sh | sudo bash -s -- 3000 pass` 其中`pass`为你的密码，可以自己改
 
 ## 查看/更改端口
-+ `curl -k https://x.x.x.x/port` 获取当前brook监听端口
-+ `curl -d 'port=1234' http://x.x.x.x/port` 设置brook监听端口为1234
++ `curl -k http://x.x.x.x:8080/port` 获取当前brook监听端口
++ `curl -d 'port=1234' http://x.x.x.x:8080/port` 设置brook监听端口为1234

@@ -75,7 +75,7 @@ func Init() {
 	log.Printf("set brook listening on port %v", brookPort)
 
 	// brook password
-	brookPass := os.Getenv(BROOK_PASS)
+	brookPass = os.Getenv(BROOK_PASS)
 	if len(brookPass) == 0 {
 		brookPass = genPasswd()
 		log.Printf("you don't set brook pass, generate default password %s", brookPass)

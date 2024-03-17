@@ -1,3 +1,3 @@
-module example.com/bagent
+module bagent.com/bagent
 
-go 1.19
+go 1.21.1

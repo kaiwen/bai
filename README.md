@@ -17,7 +17,7 @@ mkdir dist
 wget $LINUX_URL -O dist/brook_linux_amd64
 wget $APK_URL -O dist/Brook.apk
 chmox +x dist/brook_linux_amd64
-ln -s $PWD/dist/brook_linux_amd64 /usr/local/bin/
+ln -s $PWD/dist/brook_linux_amd64 /usr/local/bin/brook
 
 wget https://github.com/kaiwen/bai/releases/download/v1.0.0/bagent
 chmod +x bagent

@@ -1,8 +1,15 @@
 # Brook自动安装改端口脚本
 
 ## Feature
-+ 自动安装部署brook脚本
++ 一键安装brook脚本
 + http更改brook端口
+
+## Install
+```shell
+wget https://github.com/kaiwen/bai/releases/download/v1.0.0/bagent
+chmod +x bagent
+SERVER_PORT=80 BROOK_PORT=3030 BROOK_PASS=sec3et ./bagent
+```
 
 ## API
 | method | endpoint | paramaters | body | note |

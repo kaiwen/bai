@@ -9,13 +9,16 @@
 URL=$(curl -i https://github.com/txthinking/brook/releases/latest | awk '/^location/{print $2}' | tr -d '\r\n')
 LINUX_URL="${URL/tag/download}/brook_linux_amd64"
 APK_URL="${URL/tag/download}/Brook.apk"
+WIN_URL="${URL/tag/download}/brook_windows_amd64.exe"
 
 echo "download brook(linux): $LINUX_URL"
 echo "download brook(apk): $APK_URL"
+echo "download brook(windows): $WIN_URL"
 
 mkdir dist
 wget $LINUX_URL -O dist/brook_linux_amd64
 wget $APK_URL -O dist/Brook.apk
+wget $WIN_URL -O dist/brook_windows_amd64.exe
 chmod +x dist/brook_linux_amd64
 ln -s $PWD/dist/brook_linux_amd64 /usr/local/bin/brook
 

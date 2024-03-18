@@ -19,5 +19,5 @@ func main() {
 		panic(err)
 	}
 
-	log.Println(http.ListenAndServe(":"+strconv.Itoa(int(config.GetServerPort())), nil))
+	log.Fatal(http.ListenAndServeTLS(":"+strconv.Itoa(int(config.GetServerPort())), "cert.pem", "key.pem", nil))
 }

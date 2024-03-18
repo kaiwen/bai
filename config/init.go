@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	serverPort uint16 = 8080
+	serverPort uint16 = 443
 	brookPort  uint16
 	brookPass  string
 )

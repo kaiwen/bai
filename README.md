@@ -21,7 +21,8 @@ ln -s $PWD/dist/brook_linux_amd64 /usr/local/bin/brook
 
 wget https://github.com/kaiwen/bai/releases/download/v1.0.0/bagent
 chmod +x bagent
-SERVER_PORT=80 BROOK_PORT=3030 BROOK_PASS=sec3et ./bagent
+openssl req -newkey rsa:2048 -new -subj "/C=US/ST=FL/L=Miami/O=FO/OU=Personal/CN=Alice" -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+SERVER_PORT=443 BROOK_PORT=3030 BROOK_PASS=sec3et ./bagent
 ```
 
 ## API
